@@ -8,9 +8,9 @@ import tempfile
 import json
 
 load_dotenv("C:\Python\Agents\GeminiFunctionCalling\.env")
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY_2")
+# GEMINI_API_KEY = os.getenv("GEMINI_API_KEY_2")
 
-client = genai.Client(api_key=GEMINI_API_KEY)
+client = genai.Client(api_key="AIzaSyBr-OWcxjTBnaofYTit5UPd2FfplQT0HxA")
 
 # Replace with the actual URL of your PDF
 # doc_url = "https://discovery.ucl.ac.uk/id/eprint/10089234/1/343019_3_art_0_py4t4l_convrt.pdf"
