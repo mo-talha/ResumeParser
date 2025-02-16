@@ -15,103 +15,103 @@ client = genai.Client(api_key=GEMINI_API_KEY)
 # Replace with the actual URL of your PDF
 # doc_url = "https://discovery.ucl.ac.uk/id/eprint/10089234/1/343019_3_art_0_py4t4l_convrt.pdf"
 
-def process_resume_pdf():
-    # Retrieve and encode the PDF byte
-    filepath = pathlib.Path('SADAT_KHAN_RESUME.pdf')
-    # filepath.write_bytes(httpx.get(doc_url).content)
+# def process_resume_pdf():
+#     # Retrieve and encode the PDF byte
+#     filepath = pathlib.Path('SADAT_KHAN_RESUME.pdf')
+#     # filepath.write_bytes(httpx.get(doc_url).content)
 
-    prompt = """Hey, You are an expert at pdf parsing, specializing mainly in resume pdf files.\n 
-    A resume is given to you and you need to look for and get the following details from it:
-    - Name
-    - Email
-    - Linkedin profile
-    - Github profile
-    - Mobile number
-    - Experience
-    - Projects
-    - Education
+#     prompt = """Hey, You are an expert at pdf parsing, specializing mainly in resume pdf files.\n 
+#     A resume is given to you and you need to look for and get the following details from it:
+#     - Name
+#     - Email
+#     - Linkedin profile
+#     - Github profile
+#     - Mobile number
+#     - Experiences
+#     - Projects
+#     - Education
 
-    You need to give this data in a structured json ex:
-    {
-        "name": "Mohammed Talha",
-        "email": "mdtalha4488@gmail.com",
-        "linkedin": "linkedin.com/in/mdtalha4488@gmail.com",
-        "git": "github.com/mo-talha"
-        "mobile": +919066516023
-        "location": Bengaluru, Karnataka
-        "experience": [
-            {
-                "company_name": "koinbasket.com",
-                "role": "Software Engineer",
-                "tech_used": "Java, Python etc",
-                "work/tasks": "Orchestrated robust data pipelines, consuming and ingesting 2tb of data from various platforms in
-                cloud storage on gcp.",
-                "working_date": "Jan 2022 - Jan 2024",
-                "location": "Bengaluru, Karnataka"
-            },
-            {
-                "company_name": "koinbasket.com",
-                "role": "Software Engineer",
-                "tech_used": "Java, Python etc",
-                "work/tasks": "Orchestrated robust data pipelines, consuming and ingesting 2tb of data from various platforms in
-                cloud storage on gcp.",
-                "working_date": "Jan 2022 - Jan 2024",
-                "location": "Bengaluru, Karnataka"
-            }
-        ],
-        "projects": [
-            {
-                "project_title": "koinbasket.com",
-                "tech_used": "Java, Python etc",
-                "work/tasks": "Orchestrated robust data pipelines, consuming and ingesting 2tb of data from various platforms in
-                cloud storage on gcp.",
-                "link_to_the_project": "",
-                "link_to_git_repo":,
-            },
-            {
-                "project_title": "koinbasket.com",
-                "tech_used": "Java, Python etc",
-                "work/tasks": "Orchestrated robust data pipelines, consuming and ingesting 2tb of data from various platforms in
-                cloud storage on gcp.",
-                "link_to_the_project": "",
-                "link_to_git_repo":,
-            },
-        ],
-        "education": [
-            {
-                "college_name": "HKBK College of Engineering",
-                "degree": "B.E in Mechanical Engineering",
-                "major": "Mechanical Engineering",
-                "start_date": "Aug 2018",
-                "end_date": "Sep 2022",
-                "location": "Bangalore, Karnataka"
-            },
-            {
-                "college_name": "Columbia State University",
-                "degree": "MSc in Computer Science",
-                "major": "Mechanical Engineering",
-                "start_date": "Dec 2022",
-                "end_date": "Dec 2024",
-                "location": "New York, USA"
-            },
-        ]
-    }
+#     You need to give this data in a structured json ex:
+#     {
+#         "name": "Mohammed Talha",
+#         "email": "mdtalha4488@gmail.com",
+#         "linkedin": "linkedin.com/in/mdtalha4488@gmail.com",
+#         "git": "github.com/mo-talha"
+#         "mobile": +919066516023
+#         "location": Bengaluru, Karnataka
+#         "total_experience": "2 years 3 months"
+#         "experiences": [
+#             {
+#                 "company_name": "koinbasket.com",
+#                 "role": "Software Engineer",
+#                 "tech_used": "Java, Python etc",
+#                 "work/tasks": "Orchestrated robust data pipelines, consuming and ingesting 2tb of data from various platforms in
+#                 cloud storage on gcp.",
+#                 "working_date": "Jan 2022 - Jan 2024",
+#                 "location": "Bengaluru, Karnataka"
+#             },
+#             {
+#                 "company_name": "koinbasket.com",
+#                 "role": "Software Engineer",
+#                 "tech_used": "Java, Python etc",
+#                 "work/tasks": "Orchestrated robust data pipelines, consuming and ingesting 2tb of data from various platforms in
+#                 cloud storage on gcp.",
+#                 "working_date": "Jan 2022 - Jan 2024",
+#                 "location": "Bengaluru, Karnataka"
+#             }
+#         ],
+#         "projects": [
+#             {
+#                 "project_title": "koinbasket.com",
+#                 "tech_used": "Java, Python etc",
+#                 "work/tasks": "Orchestrated robust data pipelines, consuming and ingesting 2tb of data from various platforms in
+#                 cloud storage on gcp.",
+#                 "link_to_the_project": "",
+#                 "link_to_git_repo":,
+#             },
+#             {
+#                 "project_title": "koinbasket.com",
+#                 "tech_used": "Java, Python etc",
+#                 "work/tasks": "Orchestrated robust data pipelines, consuming and ingesting 2tb of data from various platforms in
+#                 cloud storage on gcp.",
+#                 "link_to_the_project": "",
+#                 "link_to_git_repo":,
+#             },
+#         ],
+#         "education": [
+#             {
+#                 "college_name": "HKBK College of Engineering",
+#                 "degree": "B.E in Mechanical Engineering",
+#                 "major": "Mechanical Engineering",
+#                 "start_date": "Aug 2018",
+#                 "end_date": "Sep 2022",
+#                 "location": "Bangalore, Karnataka"
+#             },
+#             {
+#                 "college_name": "Columbia State University",
+#                 "degree": "MSc in Computer Science",
+#                 "major": "Mechanical Engineering",
+#                 "start_date": "Dec 2022",
+#                 "end_date": "Dec 2024",
+#                 "location": "New York, USA"
+#             },
+#         ]
+#     }
 
-    In case of more than one experiences or projects or education I have given you the format, you must add those as dict objects in a list of 
-    experiences and projects.\n
-    Also if you do not find any information like email, git, mobile no etc you can mention as null, incase of projects, experience and
-    education you need to mention an empty list if the primary data structure is a list.
-    """
-    response = client.models.generate_content(
-        model="gemini-2.0-flash",
-        contents=[
-            types.Part.from_bytes(
-            data=filepath.read_bytes(),
-            mime_type='application/pdf',
-            ),
-            prompt])
-    print(response.text)
-
+#     In case of more than one experiences or projects or education I have given you the format, you must add those as dict objects in a list of 
+#     experiences and projects.\n
+#     Also if you do not find any information like email, git, mobile no etc you can mention as null, incase of projects, experience and
+#     education you need to mention an empty list if the primary data structure is a list.
+#     """
+#     response = client.models.generate_content(
+#         model="gemini-2.0-flash",
+#         contents=[
+#             types.Part.from_bytes(
+#             data=filepath.read_bytes(),
+#             mime_type='application/pdf',
+#             ),
+#             prompt])
+#     print(response.text)
 
 def process_resume_pdf_text(pdf_data: bytes) -> json:
     """
@@ -136,7 +136,8 @@ def process_resume_pdf_text(pdf_data: bytes) -> json:
         - Linkedin profile
         - Github profile
         - Mobile number
-        - Experience
+        - Total Experience
+        - Experiences
         - Projects
         - Education
 
@@ -145,9 +146,10 @@ def process_resume_pdf_text(pdf_data: bytes) -> json:
             "name": "Mohammed Talha",
             "email": "mdtalha4488@gmail.com",
             "linkedin": "linkedin.com/in/mdtalha4488@gmail.com",
-            "git": "github.com/mo-talha"
-            "mobile": +919066516023
-            "location": "Bengaluru, Karnataka"
+            "git": "github.com/mo-talha",
+            "mobile": +919066516023,
+            "location": "Bengaluru, Karnataka",
+            "total_experience": "2 years 3 months",
             "experience": [
                 {
                     "company_name": "koinbasket.com",
@@ -204,7 +206,7 @@ def process_resume_pdf_text(pdf_data: bytes) -> json:
 
         In case of more than one experiences or projects or education I have given you the format, you must add those as dict objects in a list of 
         experiences and projects.\n
-        Also if you do not find any information like email, git, mobile no etc you can mention as null, incase of projects, experience and
+        Also if you do not find any information like email, git, mobile, experience etc you can mention as null, incase of projects, experience and
         education you need to mention an empty list if the primary data structure is a list.\n
         ----------Here is the text-------------\n
         """
@@ -273,12 +275,12 @@ def extract_clean_text_from_pdf(pdf_path):
     return clean_text
         
 if __name__ == "__main__":
-    # extract_clean_text_from_pdf("SADAT_KHAN_RESUME.pdf")
-    # print(clean_text)
+    clean_text = extract_clean_text_from_pdf("SADAT_KHAN_RESUME.pdf")
+    print(clean_text)
 
     # process_resume_pdf()
     # extract()
-    file_path = "SADAT_KHAN_RESUME.pdf"
-    processed_resume = process_resume_pdf_text(pdf_data=file_path)
+    # file_path = "SADAT_KHAN_RESUME.pdf"
+    # processed_resume = process_resume_pdf_text(pdf_data=file_path)
     
-    print(processed_resume)
+    # print(processed_resume)
