@@ -8,7 +8,6 @@ A FastAPI-based solution that converts unstructured resume PDFs into structured 
 - **AI-Powered Analysis** with Gemini Pro 2.0 Flash
 - **Structured JSON Output** with consistent schema
 - **REST API Endpoint** for easy integration
-- **Asynchronous Processing** for better performance
 
 ## Tech Stack 🛠️
 
