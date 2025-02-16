@@ -15,7 +15,6 @@ A FastAPI-based solution that converts unstructured resume PDFs into structured 
 - **Framework**: FastAPI
 - **AI Model**: Gemini Pro 2.0 Flash
 - **PDF Processing**: PyMuPDF
-- **Async HTTP**: HTTPX
 - **Environment**: Python 3.10+
 
 ## Getting Started 🚀
@@ -59,27 +58,6 @@ JSON Response: Returns structured resume data
 Example Output 📦
 json
 ![Response demo image](images/demo2.png)
-{
-"name": "Mohammed Talha",
-"email": "mdtalha4488@gmail.com",
-"linkedin": "linkedin.com/in/mdtalha4488",
-"experience": [
-{
-"company_name": "Koinbasket",
-"role": "Software Engineer",
-"tech_used": "Java, SpringBoot, JPA, Postgres...",
-"work/tasks": "Accomplished significant cost savings...",
-"working_date": "Feb 2023 – Present"
-}
-],
-"projects": [
-{
-"project_title": "AI Email Reply Generator",
-"tech_used": "Python, FastAPI, Gemini 1.5 Flash...",
-"work/tasks": "Chrome extension for AI-powered replies..."
-}
-]
-}
 
 Architecture Overview 🏗️
 User -> [FastAPI] -> PDF Text Extraction -> [Gemini 2.0] -> JSON Structuring -> Response
