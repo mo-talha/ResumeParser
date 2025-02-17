@@ -1,7 +1,7 @@
 from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import JSONResponse
-from parse_resume import process_resume_pdf_text  # Import your function
-import json
+from parse_resume import process_resume_by_pages
+
 app = FastAPI()
 
 
@@ -19,15 +19,7 @@ async def process_resume(resume: UploadFile = File(...)):
     try:
         # Read the PDF file content
         contents = await resume.read()
-
-        # Save the PDF file temporarily (optional)
-        # with open("temp_resume.pdf", "wb") as f:
-        #     f.write(contents)
-        # processed_resume = process_resume_pdf_text("temp_resume.pdf")
-
-        # Process the resume directly from memory
-        processed_resume = process_resume_pdf_text(contents)
-        # resume_json = json.loads(process_resume)
+        processed_resume = process_resume_by_pages(contents)
 
         return JSONResponse(processed_resume)
 
